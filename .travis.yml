@@ -1,0 +1,23 @@
+language: shell
+
+git:
+  depth: false
+
+install:
+  - export PATH=$PATH:$HOME/bin
+  - bash ./scripts/install-hugo.sh
+
+script:
+  - hugo
+
+deploy:
+  local_dir: public
+  repo: skku-overflow/skku-overflow.github.io
+  target_branch: master
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  email: kdy1997.dev@gmail.com
+  name: "강동윤"
+  on:
+    branch: master
